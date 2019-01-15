@@ -31,11 +31,100 @@ namespace lab_one
                                             {"A) .NET Core Runtime", "B) ASP.NET Core Runtime", "C) .NET Core SDK", "D) All the above"},
                                             {"A) Both B & C", "B) MIT", "C) Apache2", "D) Microsoft"}
                                         };
+            //Declaring a string that whill hold the users answers
+            string[] userSelection = new string[10];
+
+            //Declaring console keys for user to start or exit test
+            ConsoleKey userKey = new ConsoleKey();
+            ConsoleKey EXIT = ConsoleKey.Spacebar;
+
+            List<string> correct = new List<string>();
+            List<string> wrong = new List<string>();
+
+           
+
+            while (userKey != ConsoleKey.Enter) {
+                Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
+                Console.WriteLine("To get started, please hit ENTER to start the program");
+                userKey = Console.ReadKey().Key;
+                Console.Clear();
+            }
+
+            while (userKey != EXIT)
+            {
+                for (int i = 0; i < quizQuestions.Length; i++)
+                {
+                    Console.Clear();
+
+                    Console.WriteLine(quizQuestions[i]);
+                    for (int n = 0; n < quizQuestionOptions.GetLength(1); n++)
+                    {
+                        Console.WriteLine(quizQuestionOptions[i, n]);
+                    }
+                    Console.WriteLine("Please enter an option.");
+                    userSelection[i] = Console.ReadLine().ToUpper();
+
+                    if (userSelection[i] == correctAnswers[i])
+                    {
+                        Console.Clear();
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("CORRECT");
+                        for(int b = 0; b < 4; b++)
+                        {
+                            Console.Beep(3200, 150);
+                        }
+                        correct.Add(userSelection[i]);
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("INCORRECT");
+                        Console.Beep(800, 850);
+                        wrong.Add(userSelection[i]);
+                    }
+                    Console.BackgroundColor = ConsoleColor.Black;
+                }
+
+                Console.Clear();
+                Console.WriteLine("Here are your answers and the correct answers.");
+                for (int a = 0; a < quizQuestions.Length; a++)
+                {
 
 
+                    if (userSelection[a] == correctAnswers[a])
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    }
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkRed;
+                    }
+                    string num = "";
+                    if (a < 9)
+                    {
+                        num = "0";
+                    }
+                    Console.WriteLine(" " + num + (a + 1) +"  |  " + userSelection[a] + "  |  " + correctAnswers[a] + "   ");
+                    
+
+                }
+                Console.BackgroundColor = ConsoleColor.Black;
+                if(correct.Count > 6)
+                {
+                    Console.WriteLine("You got " + correct.Count +" / 10!");
+                    Console.WriteLine("Congratulations! You Passed!");
+                }
+                else
+                {
+                    Console.WriteLine("You got " + correct.Count + " / 10...");
+                    Console.WriteLine("Sorry... You Failed...");
+                }
+                Console.ReadLine();
+            }
+        
 
         }
-
         
     }
 }
