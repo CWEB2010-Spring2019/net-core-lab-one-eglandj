@@ -40,9 +40,6 @@ namespace lab_one
             ConsoleKey start = ConsoleKey.Enter;
             ConsoleKey EXIT = ConsoleKey.Spacebar;
 
-            //Creating a string to hold only the correct answers
-            List<string> correct = new List<string>();
-
            //While loop telling the user how to begin the test
             while (userKey != start) {
                 Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
@@ -54,6 +51,9 @@ namespace lab_one
             //Main while loop once user started the test
             while (userKey == start)
             {
+                //Creating a string to hold only the correct answers
+                List<string> correct = new List<string>();
+
                 //For loop generating the question for the user
                 for (int i = 0; i < quizQuestions.Length; i++)
                 {
@@ -121,9 +121,9 @@ namespace lab_one
 
                 //Resetting the console color to black and using an if statement to prompt the user
                 Console.BackgroundColor = ConsoleColor.Black;
-                if(correct.Count > 6)
+                if (correct.Count > 6)
                 {
-                    Console.WriteLine("\nYou got " + correct.Count +" / 10 correct!");
+                    Console.WriteLine("\nYou got " + correct.Count + " / 10 correct!");
                     Console.WriteLine("Congratulations! You Passed!\n");
                 }
                 else
@@ -149,9 +149,9 @@ namespace lab_one
                 //Ends the program if user desires
                 if (userKey == EXIT)
                 {
-                    Environment.Exit(0);
+                    Environment.Exit(0);                   
                 }
-               
+                
             }
         
 
