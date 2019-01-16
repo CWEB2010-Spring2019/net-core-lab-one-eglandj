@@ -39,10 +39,10 @@ namespace lab_one
             ConsoleKey start = ConsoleKey.Enter;
             ConsoleKey EXIT = ConsoleKey.Spacebar;
 
+            //Creating a string to hold only the correct answers
             List<string> correct = new List<string>();
-            List<string> wrong = new List<string>();
 
-           
+           //While loop telling the user how to begin the test
             while (userKey != start) {
                 Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
                 Console.WriteLine("To get started, please hit ENTER to start the program");
@@ -50,20 +50,25 @@ namespace lab_one
                 Console.Clear();
             }
 
+            //Main while loop once user started the test
             while (userKey == start)
             {
+                //For loop generating the question for the user
                 for (int i = 0; i < quizQuestions.Length; i++)
                 {
                     Console.Clear();
+                    Console.WriteLine(quizQuestions[i] + "\n");
 
-                    Console.WriteLine(quizQuestions[i]);
+                    //For loop generating options for the quiz questions
                     for (int n = 0; n < quizQuestionOptions.GetLength(1); n++)
                     {
                         Console.WriteLine(quizQuestionOptions[i, n]);
                     }
+                    //Informing user to select an option and changing their option to a capital letter
                     Console.WriteLine("\nPlease enter an option.");
                     userSelection[i] = Console.ReadLine().ToUpper();
 
+                    //If statement determining wether the question was correct and adding the the list or incorrect and doing nothing
                     if (userSelection[i] == correctAnswers[i])
                     {
                         Console.Clear();
@@ -81,11 +86,11 @@ namespace lab_one
                         Console.BackgroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("INCORRECT");
                         Console.Beep(800, 850);
-                        wrong.Add(userSelection[i]);
                     }
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
 
+                //Creating a table of the users answers and the correct answers and turning them a specific color based on if the user answered correctly
                 Console.Clear();
                 Console.WriteLine("Here are your answers and the correct answers.\n");
                 for (int a = 0; a < quizQuestions.Length; a++)
@@ -105,25 +110,28 @@ namespace lab_one
                     {
                         num = "0";
                     }
-                    Console.WriteLine(" " + num + (a + 1) +"  |  " + userSelection[a] + "  |  " + correctAnswers[a] + "   ");
-                    
+                    Console.WriteLine(" " + num + (a + 1) +"  |  " + userSelection[a] + "  |  " + correctAnswers[a] + "   ");    
 
                 }
+
+                //Resetting the console color to black and using an if statement to prompt the user
                 Console.BackgroundColor = ConsoleColor.Black;
                 if(correct.Count > 6)
                 {
-                    Console.WriteLine("\nYou got " + correct.Count +" / 10!");
+                    Console.WriteLine("\nYou got " + correct.Count +" / 10 correct!");
                     Console.WriteLine("Congratulations! You Passed!\n");
                 }
                 else
                 {
-                    Console.WriteLine("\nYou got " + correct.Count + " / 10...");
+                    Console.WriteLine("\nYou got " + correct.Count + " / 10 correct...");
                     Console.WriteLine("Sorry... You Failed...\n");
                 }
 
+                //Statement telling the user their options and waiting for a key press
                 Console.WriteLine("Please press ENTER to try again\n\nPress SPACEBAR to Exit");
 
                 userKey = Console.ReadKey().Key;
+
 
                 while (userKey != start && userKey != EXIT)
                 {
