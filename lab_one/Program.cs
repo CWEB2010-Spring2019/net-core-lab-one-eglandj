@@ -113,21 +113,22 @@ namespace lab_one
                 if(correct.Count > 6)
                 {
                     Console.WriteLine("\nYou got " + correct.Count +" / 10!");
-                    Console.WriteLine("Congratulations! You Passed!");
+                    Console.WriteLine("Congratulations! You Passed!\n");
                 }
                 else
                 {
                     Console.WriteLine("\nYou got " + correct.Count + " / 10...");
-                    Console.WriteLine("Sorry... You Failed...");
+                    Console.WriteLine("Sorry... You Failed...\n");
                 }
 
-                Console.WriteLine("\nPlease press ENTER to try again\n\nPress SPACEBAR to Exit");
+                Console.WriteLine("Please press ENTER to try again\n\nPress SPACEBAR to Exit");
+
                 userKey = Console.ReadKey().Key;
 
                 while (userKey != start && userKey != EXIT)
                 {
                     Console.Clear();
-                    Console.WriteLine("\nPlease press ENTER to try again\n\nPress SPACEBAR to Exit");
+                    Console.WriteLine("Please press ENTER to try again\n\nPress SPACEBAR to Exit");
                     userKey = Console.ReadKey().Key;    
                 }
                 
