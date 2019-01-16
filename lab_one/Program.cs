@@ -36,21 +36,21 @@ namespace lab_one
 
             //Declaring console keys for user to start or exit test
             ConsoleKey userKey = new ConsoleKey();
+            ConsoleKey start = ConsoleKey.Enter;
             ConsoleKey EXIT = ConsoleKey.Spacebar;
 
             List<string> correct = new List<string>();
             List<string> wrong = new List<string>();
 
            
-
-            while (userKey != ConsoleKey.Enter) {
+            while (userKey != start) {
                 Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
                 Console.WriteLine("To get started, please hit ENTER to start the program");
                 userKey = Console.ReadKey().Key;
                 Console.Clear();
             }
 
-            while (userKey != EXIT)
+            while (userKey == start)
             {
                 for (int i = 0; i < quizQuestions.Length; i++)
                 {
@@ -61,7 +61,7 @@ namespace lab_one
                     {
                         Console.WriteLine(quizQuestionOptions[i, n]);
                     }
-                    Console.WriteLine("Please enter an option.");
+                    Console.WriteLine("\nPlease enter an option.");
                     userSelection[i] = Console.ReadLine().ToUpper();
 
                     if (userSelection[i] == correctAnswers[i])
@@ -69,9 +69,9 @@ namespace lab_one
                         Console.Clear();
                         Console.BackgroundColor = ConsoleColor.DarkGreen;
                         Console.WriteLine("CORRECT");
-                        for(int b = 0; b < 4; b++)
+                        for(int b = 0; b < 3; b++)
                         {
-                            Console.Beep(3200, 150);
+                            Console.Beep(2800, 100);
                         }
                         correct.Add(userSelection[i]);
                     }
@@ -87,7 +87,7 @@ namespace lab_one
                 }
 
                 Console.Clear();
-                Console.WriteLine("Here are your answers and the correct answers.");
+                Console.WriteLine("Here are your answers and the correct answers.\n");
                 for (int a = 0; a < quizQuestions.Length; a++)
                 {
 
@@ -112,15 +112,30 @@ namespace lab_one
                 Console.BackgroundColor = ConsoleColor.Black;
                 if(correct.Count > 6)
                 {
-                    Console.WriteLine("You got " + correct.Count +" / 10!");
+                    Console.WriteLine("\nYou got " + correct.Count +" / 10!");
                     Console.WriteLine("Congratulations! You Passed!");
                 }
                 else
                 {
-                    Console.WriteLine("You got " + correct.Count + " / 10...");
+                    Console.WriteLine("\nYou got " + correct.Count + " / 10...");
                     Console.WriteLine("Sorry... You Failed...");
                 }
-                Console.ReadLine();
+
+                Console.WriteLine("\nPlease press ENTER to try again\n\nPress SPACEBAR to Exit");
+                userKey = Console.ReadKey().Key;
+
+                while (userKey != start && userKey != EXIT)
+                {
+                    Console.Clear();
+                    Console.WriteLine("\nPlease press ENTER to try again\n\nPress SPACEBAR to Exit");
+                    userKey = Console.ReadKey().Key;    
+                }
+                
+                if (userKey == EXIT)
+                {
+                    break;
+                }
+                
             }
         
 
