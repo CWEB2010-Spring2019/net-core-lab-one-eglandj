@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 
 namespace lab_one
@@ -79,6 +80,8 @@ namespace lab_one
                             Console.Beep(2800, 100);
                         }
                         correct.Add(userSelection[i]);
+                        Thread.Sleep(1000);
+                   
                     }
                     else
                     {
@@ -86,7 +89,9 @@ namespace lab_one
                         Console.BackgroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("INCORRECT");
                         Console.Beep(800, 850);
+                      
                     }
+                    //Resetting the console to black after each loop
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
 
@@ -130,9 +135,10 @@ namespace lab_one
                 //Statement telling the user their options and waiting for a key press
                 Console.WriteLine("Please press ENTER to try again\n\nPress SPACEBAR to Exit");
 
+                //Resetting userKey
                 userKey = Console.ReadKey().Key;
 
-
+                //Resetting user options if they press any key other than ENTER or SPACE BAR
                 while (userKey != start && userKey != EXIT)
                 {
                     Console.Clear();
@@ -140,11 +146,12 @@ namespace lab_one
                     userKey = Console.ReadKey().Key;    
                 }
                 
+                //Ends the program if user desires
                 if (userKey == EXIT)
                 {
                     Environment.Exit(0);
                 }
-                
+               
             }
         
 
