@@ -88,7 +88,7 @@ namespace lab_one
                         Console.Clear();
                         Console.BackgroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("INCORRECT");
-                        Console.Beep(800, 850);
+                        Console.Beep(800, 1000);
                       
                     }
                     //Resetting the console to black after each loop
