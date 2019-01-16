@@ -134,7 +134,7 @@ namespace lab_one
                 
                 if (userKey == EXIT)
                 {
-                    break;
+                    Environment.Exit(0);
                 }
                 
             }
