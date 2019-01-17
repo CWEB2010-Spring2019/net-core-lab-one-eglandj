@@ -117,7 +117,7 @@ namespace lab_one
                     {
                         num = "0";
                     }
-                    Console.WriteLine(" " + num + (a + 1) + "  |  " + userSelection[a] + "  |  " + correctAnswers[a] + "   ");
+                    Console.WriteLine("  " + num + (a + 1) + "  |  " + userSelection[a] + "  |  " + correctAnswers[a] + "   ");
 
                 }
 
