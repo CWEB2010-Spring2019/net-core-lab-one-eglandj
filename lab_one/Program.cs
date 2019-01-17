@@ -35,9 +35,9 @@ namespace lab_one
             //Declaring a string that whill hold the users answers
             string[] userSelection = new string[10];
 
-            bool hello = true;
+            var begin = true;
 
-            while (hello == true)
+            while (begin == true)
             {
                 //Declaring console keys for user to start or exit test
                 ConsoleKey start = ConsoleKey.Enter;
@@ -153,7 +153,7 @@ namespace lab_one
                 //Ends the program if user desires
                 if (userKey == EXIT)
                 {
-                    hello = false;
+                    begin = false;
                 }
                 
             }
