@@ -144,7 +144,7 @@ namespace lab_one
                 while (userKey != start && userKey != EXIT)
                 {
                     Console.Clear();
-                    Console.WriteLine("Please press ENTER to try again\n\nPress SPACEBAR to Exit");
+                    Console.WriteLine("Press ENTER to try again\n\nPress SPACEBAR to Exit");
                     userKey = Console.ReadKey().Key;
                 }
 
