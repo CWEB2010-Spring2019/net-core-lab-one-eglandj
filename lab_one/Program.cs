@@ -102,6 +102,7 @@ namespace lab_one
 
                 //Creating a table of the users answers and the correct answers and turning them a specific color based on if the user answered correctly
                 Console.WriteLine("Here are your answers and the correct answers.\n");
+                Console.WriteLine(" (Q#) | (A) | (C) ");
                 for (int a = 0; a < quizQuestions.Length; a++)
                 {
 
