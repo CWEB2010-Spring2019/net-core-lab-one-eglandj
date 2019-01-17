@@ -23,7 +23,7 @@ namespace lab_one
             string[,] quizQuestionOptions = {
                                             {"A) 2019", "B) 2016", "C) 2003", "D) 1990"},
                                             {"A) 1.0", "B) 2.2", "C) 2.0", "D) 1.5"},
-                                            {"A) Linux", "B) Window", "C) IOS", "D) macOS"},
+                                            {"A) Linux", "B) Windows", "C) IOS", "D) macOS"},
                                             {"A) Microsoft", "B) Windows", "C) Apple", "D) Android"},
                                             {"A) .NET Framework", "B) Xamarin", "C) Mono", "D) All the above"},
                                             {"A) .NET Standard", "B) .NET Foundation", "C) .NET Docker", "D) .NET Core Creator"},
@@ -50,7 +50,7 @@ namespace lab_one
                 while (userKey != start)
                 {
                     Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core.\n");
-                    Console.WriteLine("To get started, please hit ENTER to start the program.\n");
+                    Console.WriteLine("To get started, please press the ENTER key.\n");
                     Console.WriteLine("Also, please have SOUND ON.");
                     userKey = Console.ReadKey().Key;
                     Console.Clear();
@@ -69,7 +69,7 @@ namespace lab_one
                         Console.WriteLine(quizQuestionOptions[i, n]);
                     }
                     //Informing user to select an option and changing their option to a capital letter
-                    Console.WriteLine("\nPlease enter an option.");
+                    Console.WriteLine("\nPlease enter an option.\n");
                     userSelection[i] = Console.ReadLine().ToUpper();
 
                     //If statement determining wether the question was correct or incorrect
@@ -136,7 +136,7 @@ namespace lab_one
                 }
 
                 //Statement telling the user their options and waiting for a key press
-                Console.WriteLine("Press ENTER to try again\n\nPress SPACEBAR to Exit");
+                Console.WriteLine("Press ENTER to try again.\n\nPress SPACEBAR to Exit.");
 
                 //Resetting userKey
                 userKey = Console.ReadKey().Key;
