@@ -41,7 +41,8 @@ namespace lab_one
             ConsoleKey EXIT = ConsoleKey.Spacebar;
 
            //While loop telling the user how to begin the test
-            while (userKey != start) {
+            while (userKey != start)
+            {
                 Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
                 Console.WriteLine("To get started, please hit ENTER to start the program");
                 userKey = Console.ReadKey().Key;
@@ -51,12 +52,14 @@ namespace lab_one
             //Main while loop once user started the test
             while (userKey == start)
             {
+
                 //Creating a string to hold only the correct answers
                 List<string> correct = new List<string>();
 
                 //For loop generating the question for the user
                 for (int i = 0; i < quizQuestions.Length; i++)
                 {
+
                     Console.Clear();
                     Console.WriteLine(quizQuestions[i] + "\n");
 
@@ -100,7 +103,6 @@ namespace lab_one
                 Console.WriteLine("Here are your answers and the correct answers.\n");
                 for (int a = 0; a < quizQuestions.Length; a++)
                 {
-
 
                     if (userSelection[a] == correctAnswers[a])
                     {
@@ -150,12 +152,8 @@ namespace lab_one
                 if (userKey == EXIT)
                 {
                     Environment.Exit(0);                   
-                }
-                
+                }               
             }
-        
-
         }
-        
     }
 }
