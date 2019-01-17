@@ -35,24 +35,22 @@ namespace lab_one
             //Declaring a string that whill hold the users answers
             string[] userSelection = new string[10];
 
-            //Declaring console keys for user to start or exit test
-            ConsoleKey userKey = new ConsoleKey();
-            ConsoleKey start = ConsoleKey.Enter;
-            ConsoleKey EXIT = ConsoleKey.Spacebar;
+            bool hello = true;
 
-           //While loop telling the user how to begin the test
-            while (userKey != start)
+            while (hello == true)
             {
-                Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
-                Console.WriteLine("To get started, please hit ENTER to start the program");
-                userKey = Console.ReadKey().Key;
-                Console.Clear();
-            }
+                //Declaring console keys for user to start or exit test
+                ConsoleKey start = ConsoleKey.Enter;
+                ConsoleKey userKey = new ConsoleKey();
+                ConsoleKey EXIT = ConsoleKey.Spacebar;
 
-            //Main while loop once user started the test
-            while (userKey == start)
-            {
-
+                while (userKey != start)
+                {
+                    Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
+                    Console.WriteLine("To get started, please hit ENTER to start the program");
+                    userKey = Console.ReadKey().Key;
+                    Console.Clear();
+                }
                 //Creating a string to hold only the correct answers
                 List<string> correct = new List<string>();
 
@@ -72,19 +70,19 @@ namespace lab_one
                     Console.WriteLine("\nPlease enter an option.");
                     userSelection[i] = Console.ReadLine().ToUpper();
 
-                    //If statement determining wether the question was correct and adding the the list or incorrect and doing nothing
+                    //If statement determining wether the question was correct or incorrect
                     if (userSelection[i] == correctAnswers[i])
                     {
                         Console.Clear();
                         Console.BackgroundColor = ConsoleColor.DarkGreen;
                         Console.WriteLine("CORRECT");
-                        for(int b = 0; b < 3; b++)
+                        for (int b = 0; b < 3; b++)
                         {
                             Console.Beep(2800, 100);
                         }
                         correct.Add(userSelection[i]);
                         Thread.Sleep(1000);
-                   
+
                     }
                     else
                     {
@@ -92,14 +90,15 @@ namespace lab_one
                         Console.BackgroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("INCORRECT");
                         Console.Beep(800, 1000);
-                      
+
                     }
                     //Resetting the console to black after each loop
                     Console.BackgroundColor = ConsoleColor.Black;
                 }
 
-                //Creating a table of the users answers and the correct answers and turning them a specific color based on if the user answered correctly
                 Console.Clear();
+
+                //Creating a table of the users answers and the correct answers and turning them a specific color based on if the user answered correctly
                 Console.WriteLine("Here are your answers and the correct answers.\n");
                 for (int a = 0; a < quizQuestions.Length; a++)
                 {
@@ -117,7 +116,7 @@ namespace lab_one
                     {
                         num = "0";
                     }
-                    Console.WriteLine(" " + num + (a + 1) +"  |  " + userSelection[a] + "  |  " + correctAnswers[a] + "   ");    
+                    Console.WriteLine(" " + num + (a + 1) + "  |  " + userSelection[a] + "  |  " + correctAnswers[a] + "   ");
 
                 }
 
@@ -145,14 +144,17 @@ namespace lab_one
                 {
                     Console.Clear();
                     Console.WriteLine("Please press ENTER to try again\n\nPress SPACEBAR to Exit");
-                    userKey = Console.ReadKey().Key;    
+                    userKey = Console.ReadKey().Key;
                 }
-                
+
+                Console.Clear();
+
                 //Ends the program if user desires
                 if (userKey == EXIT)
                 {
-                    Environment.Exit(0);                   
-                }               
+                    hello = false;
+                }
+                
             }
         }
     }
