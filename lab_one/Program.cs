@@ -49,8 +49,9 @@ namespace lab_one
 
                 while (userKey != start)
                 {
-                    Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core");
-                    Console.WriteLine("To get started, please hit ENTER to start the program");
+                    Console.WriteLine("Welcome, this program will assess your knowledge of .NET Core.\n");
+                    Console.WriteLine("To get started, please hit ENTER to start the program.\n");
+                    Console.WriteLine("Also please have SOUND ON.");
                     userKey = Console.ReadKey().Key;
                     Console.Clear();
                 }                
